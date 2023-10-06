@@ -5,12 +5,21 @@ const textocifrado = document.getElementById("cifrado")
 function cifrado(){
     //Declarar el texto a ingresar
     const textoIngresado = texto.value;
-    textocifrado.value = textoIngresado.split(' ').map(c=>{
+    textocifrado.value = textoIngresado.split('').map(c=>{
         let mayus = (c===c.toUpperCase()) ? true :
         false;
         let valorEntero = c.toLowerCase().charCodeAt(0);
         if(valorEntero >= 97 && valorEntero <= 122){
-            const valorDesplazamiento = parseInt(desplazamiento.value)
+            const valorDesplazamiento = parseInt(desplazamiento.value);
+            if(valorEntero+valorDesplazamiento > 122){
+                valorEntero=97+(valorEntero-122)+valorDesplazamiento-1
+            }else{
+                valorEntero=valorEntero+valorDesplazamiento
+            }
         }
-    })
+        let cifrado = String.fromCharCode(valorEntero);
+        return mayus ? cifrado.toUpperCase() : cifrado;
+    }).join('');
 }
+texto.addEventListener("keyup",cifrado);
+desplazamiento.addEventListener("change", cifrado);
