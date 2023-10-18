@@ -19,9 +19,9 @@
                 <p><input type="text" id="txt"></p>
                 <br>
                 <p>
-                    <input type="button" class="btn btn-info" value="Cifrar" onclick="">
-                    <input type="button" class="btn btn-info" value="Descifrar" onclick="">
-                    <input type="button" class="btn btn-info" value="Reiniciar" onclick="">
+                    <input type="button" class="btn btn-info" value="Cifrar" onclick="longitudCifrar()">
+                    <input type="button" class="btn btn-info" value="Descifrar" onclick="longitudDescifrar()">
+                    <input type="button" class="btn btn-info" value="Reiniciar" onclick="reiniciar()">
                 </p>
                 <p><h3>Por favor ingresa la clave secreta</h3></p>
                 <br>
@@ -29,9 +29,10 @@
                 <br>
                 <textarea id="res" onpaste="return false;" ondrop="return false;"></textarea>
                 <br>
-                <p><input type="button" class="btn btn-info" value="Copiar" onclick=""></p>
+                <p><input type="button" class="btn btn-info" value="Copiar" onclick="colocar()"></p>
             </article>
         </div>
     </div>
+    <script src="./js/viggenere.js"></script>
 </body>
 </html>

@@ -111,3 +111,15 @@ function camposVacios(){
         alert="Ingrese una clave para cifrar"
     }
 }
+
+function colocar(){
+    //copiar el texto
+    var copiar = document.getElementById("res").value;
+    document.getElementById("txt").value = copiar;
+}
+
+function reiniciar (){
+    var texto = document.getElementById("txt").value = "";
+    var clave = docuemnt.getElementById("txtClave").value = "";
+    var clave = docuemnt.getElementById("res").innerText = "";
+}
