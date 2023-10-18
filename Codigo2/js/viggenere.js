@@ -9,12 +9,10 @@ var viggenere = viggenere || (function(){
                     var pos = i;
                     if(action){
                         //Cifrar
-                        pos += desp;
-                        pos = (pos>=1)?pos-1 : pos;
+                        pos = (pos + desp) % l;
                     }else{
                         //Descifar
-                        pos -= desp;
-                        pos = (pos<0)?l+pos : pos;
+                        pos = (pos - desp + l) % l;
                     }
                     return abc[pos];
                 }
@@ -50,7 +48,7 @@ function longitudCifrar(){
 function longitudDescifrar(){
     camposVacios();
     var texto = document.getElementById("txt").value;
-    var clave = docuemnt.getElementById("txtClave").value;
+    var clave = document.getElementById("txtClave").value;
     if(clave.length > texto.length){
         alert("La clave no puede ser mas grande que el texto a cifrar");
     }else{
@@ -64,7 +62,7 @@ function codificar (texto,clave){
     var charATexto = texto.split('');
 
     for(var i=0; i<charATexto.length; i++){
-        var des = obIndiceClave(Clave.charAt(indiceClave));
+        var des = obIndiceClave(clave.charAt(indiceClave));
         var charTexto = charATexto[i];
 
         resultado += viggenere.encode(charTexto, (des>=26)? des%26 : des);
@@ -83,7 +81,7 @@ function decodificar (texto,clave){
     var charATexto = texto.split('');
 
     for(var i=0; i<charATexto.length; i++){
-        var des = obIndiceClave(Clave.charAt(indiceClave));
+        var des = obIndiceClave(clave.charAt(indiceClave));
         var charTexto = charATexto[i];
 
         resultado += viggenere.decode(charTexto, (des>=26)? des%26 : des);
@@ -105,10 +103,10 @@ function camposVacios(){
     var texto = document.getElementById("txt").value;
     var clave = document.getElementById("txtClave").value;
     if (texto==""){
-        alert="Ingrese un texto para cifrar"
+        alert=("Ingrese un texto para cifrar")
     }
     if (clave==""){
-        alert="Ingrese una clave para cifrar"
+        alert=("Ingrese una clave para cifrar")
     }
 }
 
