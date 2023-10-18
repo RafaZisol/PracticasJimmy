@@ -86,7 +86,7 @@ function decodificar (texto,clave){
         var des = obIndiceClave(Clave.charAt(indiceClave));
         var charTexto = charATexto[i];
 
-        resultado += viggenere.encode(charTexto, (des>=26)? des%26 : des);
+        resultado += viggenere.decode(charTexto, (des>=26)? des%26 : des);
         indiceClave++;
 
         if (indiceClave>=clave.length){
