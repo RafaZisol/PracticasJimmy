@@ -39,7 +39,7 @@ var viggenere = viggenere || (function(){
 function longitudCifrar(){
     camposVacios();
     var texto = document.getElementById("txt").value;
-    var clave = docuemnt.getElementById("txtClave").value;
+    var clave = document.getElementById("txtClave").value;
     if(clave.length > texto.length){
         alert("La clave no puede ser mas grande que el texto a cifrar");
     }else{
@@ -103,7 +103,7 @@ function obIndiceClave(reco){
 
 function camposVacios(){
     var texto = document.getElementById("txt").value;
-    var clave = docuemnt.getElementById("txtClave").value;
+    var clave = document.getElementById("txtClave").value;
     if (texto==""){
         alert="Ingrese un texto para cifrar"
     }
@@ -118,8 +118,8 @@ function colocar(){
     document.getElementById("txt").value = copiar;
 }
 
-function reiniciar (){
+function reiniciar(){
     var texto = document.getElementById("txt").value = "";
-    var clave = docuemnt.getElementById("txtClave").value = "";
-    var clave = docuemnt.getElementById("res").innerText = "";
+    var clave = document.getElementById("txtClave").value = "";
+    var clave = document.getElementById("res").innerText = "";
 }
