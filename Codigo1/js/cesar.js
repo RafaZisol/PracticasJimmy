@@ -5,6 +5,10 @@ console.log(desplazamiento.value);
 //Creamos funcion para cifrar
 function cifrado(){
     //Declarar el texto a ingresar
+    const desplazamiento = document.getElementById("desplazamiento");
+    const texto = document.getElementById("texto");
+    const textocifrado = document.getElementById("cifrado")
+    console.log(desplazamiento.value);
     const textoIngresado = texto.value;
     textocifrado.value = textoIngresado.split('').map(c=>{
         let mayus = (c===c.toUpperCase()) ? true :
