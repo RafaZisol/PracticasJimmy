@@ -69,7 +69,7 @@ function decodificar (texto,clave){
             indiceClave =0
         }
     }
-    document.getElementById("res").value=resultado;
+    document.getElementById("cifrado").value=resultado;
 }
 
 function obIndiceClave(reco){
