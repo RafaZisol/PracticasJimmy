@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Cifrador</title>
+    <script src="./descifrar.js"></script>
+</head>
+<body>
+    <div class="container">
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="texto">Texto que desea descifrar</label>
+                    <textarea type="text" name="texto" id="texto" class="form-control"></textarea>
+                </div>
+            </div>
+            <input type="checkbox" id="Cesar"> Cifrado Cesar
+            <input type="checkbox" id="Viggenere"> Cifrado Viggenere            
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="desplazamiento">Desplazamiento o clave</label>
+                    <input min="1" max="25" step="1" id="desplazamiento" name="desplazamiento" class="form-control">
+                </div>
+            </div>
+            <input type="button" class="btn btn-info" value="Descifrar" onclick="cifrado()">
+            <script>
+              var checkbox1 = document.getElementById("Cesar");
+              var checkbox2 = document.getElementById("Viggenere");
+              var miInput = document.getElementById("desplazamiento");
+            
+              checkbox1.addEventListener("change", function() {
+                if (checkbox1.checked) {
+                  checkbox2.checked = false;
+                  miInput.type = "number";
+                  
+                } else {
+                  miInput.type = "text"; 
+                }                
+              });
+              
+              checkbox2.addEventListener("change", function() {
+                if (checkbox2.checked) {
+                  checkbox1.checked = false;
+                  miInput.type = "text";
+                  miInput.addEventListener("input", function() {                    
+                  this.value = this.value.replace(/[0-9]/g, '');
+                  document.getElementById("cifrado").value="";
+                  });
+
+                } else {
+                  miInput.type = "text";
+                  miInput.removeEventListener("input", function() {                    
+                  });
+                }
+              });
+            </script>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="cifrado">Texto cifrado</label>
+                    <input type="texto" id="cifrado" name="cifrado" class="form-control" disabled="disabled">
+                </div>
+            </div>
+            <label for="texto"><a href="./index.html">Cifrar</a></label>
+        </div>
+    </div>
+</body>
+</html>
